@@ -39,21 +39,21 @@ VENV_DIR="/root/moebot_venv"
 
 print_banner() {
     clear
-    echo -e "${BOLD_MAGENTA}"
-    echo "╔═══════════════════════════════════════════════╗"
-    echo "║                                               ║"
-    echo "║   ${WHITE}██╗     ██╗   ██╗███╗   ███╗███╗   ███╗  ${MAGENTA}║"
-    echo "║   ${WHITE}██║     ██╗   ██║████╗ ████║████╗ ████║  ${MAGENTA}║"
-    echo "║   ${WHITE}██║     ██╗   ██║██╔████╔██║██╔████╔██║  ${MAGENTA}║"
-    echo "║   ${WHITE}██║     ██╗   ██║██║╚██╔╝██║██║╚██╔╝██║  ${MAGENTA}║"
-    echo "║   ${WHITE}███████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║  ${MAGENTA}║"
-    echo "║   ${WHITE}╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ${MAGENTA}║"
-    echo "║                                               ║"
-    echo "║          ${WHITE}Multi-Feature Telegram Bot${MAGENTA}         ║"
-    echo "║          ${WHITE}Powered by python-telegram-bot${MAGENTA}    ║"
-    echo "║                                               ║"
-    echo "╚═══════════════════════════════════════════════╝"
-    echo -e "${NC}"
+    echo ""
+    echo -e "${BOLD_MAGENTA}╔═══════════════════════════════════════════════╗${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}                                               ${BOLD_MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}██╗     ██╗   ██╗███╗   ███╗███╗   ███╗  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}██║     ██╗   ██║████╗ ████║████╗ ████║  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}██║     ██╗   ██║██╔████╔██║██╔████╔██║  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}██║     ██╗   ██║██║╚██╔╝██║██║╚██╔╝██║  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}███████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}   ${WHITE}╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ${MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}                                               ${BOLD_MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}          ${WHITE}MoeBot - Multi-Feature Telegram Bot${MAGENTA}         ║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}          ${WHITE}Powered by python-telegram-bot v21${MAGENTA}        ║${NC}"
+    echo -e "${BOLD_MAGENTA}║${NC}                                               ${BOLD_MAGENTA}║${NC}"
+    echo -e "${BOLD_MAGENTA}╚═══════════════════════════════════════════════╝${NC}"
+    echo ""
 }
 
 print_step() {
@@ -122,23 +122,21 @@ input_prompt() {
     local prompt="$1"
     local default="$2"
     
-    while true; do
-        if [ -z "$default" ]; then
-            echo -ne "${CYAN}${prompt}: ${NC}"
-        else
-            echo -ne "${CYAN}${prompt} [${default}]: ${NC}"
-        fi
-        
-        read -r response
-        
-        if [ -n "$response" ]; then
-            echo "$response"
-            return 0
-        elif [ -n "$default" ]; then
-            echo "$default"
-            return 0
-        fi
-    done
+    if [ -z "$default" ]; then
+        echo -ne "${CYAN}${prompt}: ${NC}"
+    else
+        echo -ne "${CYAN}${prompt} [${default}]: ${NC}"
+    fi
+    
+    read -r response
+    
+    if [ -n "$response" ]; then
+        echo "$response"
+    elif [ -n "$default" ]; then
+        echo "$default"
+    else
+        echo ""
+    fi
 }
 
 password_prompt() {
