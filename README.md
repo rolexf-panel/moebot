@@ -1,5 +1,7 @@
 # MoeBot 🤖
 
+<img src="https://files.catbox.moe/j2nm96.png" alt="MoeBot Banner" width="100%">
+
 Bot Telegram multifungsi dengan sistem plugin modular menggunakan python-telegram-bot v21 (async).
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
