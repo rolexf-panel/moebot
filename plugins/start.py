@@ -8,6 +8,8 @@ plugin = {
     "commands": ["/start"]
 }
 
+BANNER_URL = "https://files.catbox.moe/j2nm96.png"
+
 async def start_command(update, context):
     """Command /start"""
     user = update.effective_user
@@ -37,7 +39,14 @@ async def start_command(update, context):
     if update.callback_query:
         await update.callback_query.edit_message_text(text, reply_markup=reply_markup)
     else:
-        await update.message.reply_text(text, reply_markup=reply_markup)
+        try:
+            await update.message.reply_photo(
+                photo=BANNER_URL,
+                caption=text,
+                reply_markup=reply_markup
+            )
+        except:
+            await update.message.reply_text(text, reply_markup=reply_markup)
 
 async def menu_callback(update, context):
     """Handle callback dari inline keyboard"""
