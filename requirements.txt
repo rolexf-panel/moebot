@@ -1,0 +1,6 @@
+python-telegram-bot[job-queue]==21.*
+aiosqlite
+yt-dlp
+httpx
+python-dotenv
+psutil
